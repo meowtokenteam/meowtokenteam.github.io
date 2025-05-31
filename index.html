@@ -1,159 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MeowChain - The Decentralized Blockchain Universe</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MeowChain - The Decentralized Blockchain Universe</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;500&display=swap');
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      color: #eee;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
 
-    header {
-      background: linear-gradient(90deg, #5db7ff, #1991ff); /* สีฟ้าแบบเหรียญ SOL */
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #ffd347;
-      box-shadow: 0 2px 8px rgba(29,126,255,0.8);
-    }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(ellipse at bottom, #000010 0%, #000000 100%);
+    color: #e6e6e6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
+  /* Starfield background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 40% 70%, #ddd, transparent),
+      radial-gradient(2.5px 2.5px at 80% 50%, #ccc, transparent),
+      radial-gradient(1px 1px at 70% 90%, #eee, transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: starshift 200s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes starshift {
+    from { background-position: 0 0, 0 0, 0 0, 0 0;}
+    to { background-position: 1000px 500px, 400px 800px, 800px 1200px, 1200px 1500px;}
+  }
+
+  header {
+    background: linear-gradient(90deg, #1991ff, #5db7ff);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #ffd347;
+    box-shadow: 0 3px 15px rgba(29,126,255,0.7);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  header h1 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #ffd347;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-shadow: 0 0 8px #ffd347cc, 0 0 15px #bfa136cc;
+    user-select: none;
+  }
+
+  header h1 img {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffd347aa;
+  }
+
+  nav {
+    display: flex;
+    gap: 25px;
+  }
+
+  nav button {
+    background: transparent;
+    border: 2.5px solid #ffd347;
+    color: #ffd347;
+    font-weight: 600;
+    font-size: 1.15rem;
+    padding: 10px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-shadow: 0 0 4px #bfa136;
+  }
+
+  nav button:hover {
+    background: #ffd347;
+    color: #001114;
+    box-shadow: 0 0 15px #ffd347bb;
+    text-shadow: none;
+  }
+
+  main {
+    flex-grow: 1;
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  h2 {
+    font-family: 'Orbitron', monospace;
+    color: #ffd347;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 18px;
+    text-shadow: 0 0 10px #bfa136aa;
+  }
+
+  p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #ddd;
+    max-width: 800px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 3px #111;
+  }
+
+  .buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .buttons-group button {
+    flex-grow: 1;
+    min-width: 160px;
+    padding: 16px 28px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #ffd347, #bfa136);
+    color: #001114;
+    box-shadow: 0 4px 12px #bfa136cc;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    text-shadow: 0 0 3px #6f5600;
+  }
+
+  .buttons-group button:hover {
+    background: linear-gradient(90deg, #fff3a6, #f5ca34);
+    box-shadow: 0 6px 18px #ffdd66cc;
+    color: #111;
+    text-shadow: none;
+  }
+
+  .buttons-group button.sol {
+    background: linear-gradient(90deg, #5db7ff, #1991ff);
+    color: #e0f7ff;
+    box-shadow: 0 4px 14px #1d7effcc;
+    text-shadow: 0 0 6px #7cc3ff;
+  }
+
+  .buttons-group button.sol:hover {
+    background: linear-gradient(90deg, #8ec9ff, #3db5ff);
+    box-shadow: 0 6px 20px #2cacffcc;
+    color: #003058;
+    text-shadow: none;
+  }
+
+  footer {
+    text-align: center;
+    padding: 22px 0;
+    color: #aaa;
+    border-top: 1px solid #333;
+    font-size: 1rem;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  footer strong {
+    color: #ffd347;
+  }
+
+  @media (max-width: 650px) {
     header h1 {
-      font-size: 2rem;
-      color: #ffd347; /* สีทอง */
-      cursor: default;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 900;
-      text-shadow: 1px 1px 3px #bfa136;
+      font-size: 1.8rem;
     }
-
-    header h1 img {
-      height: 48px;
-      width: 48px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 211, 63, 0.8);
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
     nav button {
-      background: transparent;
-      border: 2px solid #ffd347;
-      color: #ffd347;
-      padding: 8px 15px;
+      padding: 8px 16px;
       font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      text-shadow: 0 0 3px #bfa136;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      min-width: 120px;
     }
-
-    nav button:hover {
-      background: #ffd347;
-      color: #111;
-      text-shadow: none;
-    }
-
     main {
-      flex-grow: 1;
-      padding: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 20px 15px;
+      margin: 20px auto;
     }
-
-    h2 {
-      color: #ffd347; /* สีทอง */
-      margin-bottom: 20px;
-      text-shadow: 0 0 5px #bfa136;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .buttons-group {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .buttons-group button {
-      background: linear-gradient(90deg, #ffd347, #bfa136);
-      color: #111;
-      border: none;
-      padding: 15px 30px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 3px 8px rgba(191,161,54,0.6);
-      text-shadow: 0 0 2px #6f5600;
-      transition: background-color 0.3s ease;
-    }
-
-    .buttons-group button:hover {
-      background: linear-gradient(90deg, #fff3a6, #f5ca34);
-      box-shadow: 0 4px 12px rgba(255,211,63,0.9);
-      color: #222;
-      text-shadow: none;
-    }
-
-    /* ปุ่มฟ้าสำหรับโซล */
-    .buttons-group button.sol {
-      background: linear-gradient(90deg, #5db7ff, #1991ff);
-      color: #e0f7ff;
-      box-shadow: 0 3px 8px rgba(29,126,255,0.8);
-      text-shadow: 0 0 3px #7cc3ff;
-    }
-
-    .buttons-group button.sol:hover {
-      background: linear-gradient(90deg, #8ec9ff, #3db5ff);
-      box-shadow: 0 4px 12px rgba(44,174,255,0.9);
-      color: #003058;
-      text-shadow: none;
-    }
-
-    footer {
-      background: #1f2025;
-      color: #aaa;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 0.9rem;
-      margin-top: auto;
-      border-top: 1px solid #333;
-      user-select: none;
-    }
-
-    a {
-      color: #ffd347;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
@@ -161,7 +203,7 @@
   <h1>
     <img src="ChatGPT Image 27 พ.ค. 2568 03_43_58.png" alt="Meowchain Logo - meowai" title="Meowchain" />
     MeowChain
-    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo - meowai" title="MEOW-SOL" style="margin-left:1rem; height:48px; width:48px; border-radius:50%; box-shadow: 0 0 8px #00aaff;" />
+    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo - meowai" title="MEOW-SOL" style="margin-left:1rem; height:56px; width:56px; border-radius:50%; box-shadow: 0 0 12px #00aaff;" />
   </h1>
   <nav>
     <button onclick="scrollToSection('roadmap')">Roadmap</button>
@@ -174,12 +216,12 @@
 <main>
   <section class="section" id="intro">
     <h2>Welcome to MeowChain</h2>
-    <p>The decentralized blockchain universe empowering creators, developers, and communities worldwide.</p>
+    <p>MeowChain is a decentralized blockchain universe designed to empower creators, developers, and communities worldwide. It is built to provide a fast, scalable, and transparent ecosystem where everyone can participate, build, and benefit.</p>
   </section>
 
   <section class="section" id="roadmap">
     <h2>Roadmap</h2>
-    <p>Discover the future milestones and phases of MeowChain’s development.</p>
+    <p>Discover the milestones and future phases planned for MeowChain’s ongoing development and expansion.</p>
     <div class="buttons-group">
       <button onclick="window.open('https://meowtokenteam.com/roadmap', '_blank')">View Full Roadmap</button>
     </div>
@@ -187,7 +229,7 @@
 
   <section class="section" id="ecosystem">
     <h2>MeowChain Ecosystem</h2>
-    <p>Explore the powerful projects built on MeowChain.</p>
+    <p>Explore the innovative projects and services built on the MeowChain blockchain.</p>
     <div class="buttons-group">
       <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
       <button onclick="window.open('https://solscan.io/token/Epw6gVg9sPN5SC1AUXYXPvGsL4CgRADJHikZMZQ9GoiM', '_blank')" class="sol">Meow-sol</button>
@@ -198,7 +240,7 @@
 
   <section class="section" id="community">
     <h2>Community & Social</h2>
-    <p>Join our growing community and connect with us on social platforms.</p>
+    <p>Join our growing community and connect with us on social platforms to stay updated and participate in discussions.</p>
     <div class="buttons-group">
       <button onclick="window.open('https://twitter.com/meowtokenteam', '_blank')" class="sol">Twitter</button>
       <button onclick="window.open('https://discord.gg/meowtoken', '_blank')">Discord</button>
@@ -208,7 +250,7 @@
 
   <section class="section" id="contact">
     <h2>Contact Us</h2>
-    <p>Questions? Reach out via email: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a></p>
+    <p>If you have any questions, feel free to reach out via email: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a></p>
   </section>
 </main>
 
