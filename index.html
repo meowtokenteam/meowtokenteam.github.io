@@ -12,168 +12,86 @@
       box-sizing: border-box;
     }
 
-    /* Body & background */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #f5f5f5;
-      background: radial-gradient(ellipse at center, #0b0c10 0%, #1a1a2e 70%, #0b0c10 100%);
-      overflow-x: hidden;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      color: #eee;
+      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 20px;
     }
 
-    /* Stars effect */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      background: transparent;
-      box-shadow:
-        10px 20px 1px #fff,
-        40px 100px 1.5px #fff,
-        80px 150px 2px #eee,
-        120px 50px 1.2px #fff,
-        160px 200px 2px #ddd,
-        200px 300px 1.5px #fff,
-        250px 180px 2px #eee,
-        300px 100px 1.2px #fff,
-        350px 150px 1.5px #ddd,
-        400px 200px 2px #eee,
-        450px 300px 1.8px #fff,
-        500px 180px 1.5px #ddd,
-        550px 230px 1.2px #fff,
-        600px 90px 2px #eee,
-        650px 130px 1.5px #ddd,
-        700px 250px 1.8px #fff,
-        750px 280px 2px #eee;
-      animation: twinkle 20s linear infinite;
-      opacity: 0.8;
-      z-index: -1;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 0.4; }
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05), transparent 70%),
-        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.07), transparent 80%);
-      filter: blur(30px);
-      z-index: -1;
-    }
-
-    /* Container to center content and limit width */
-    .container {
-      max-width: 1000px;
-      width: 100%;
-      background-color: rgba(15,15,20,0.75);
-      border-radius: 15px;
-      box-shadow: 0 0 40px rgba(255, 211, 63, 0.7);
-      padding: 40px 50px;
-    }
-
-    /* Header */
     header {
-      background: linear-gradient(90deg, #0057b8, #00aaff);
-      width: 100%;
-      max-width: 1000px;
-      padding: 15px 50px;
-      border-radius: 15px;
+      background: linear-gradient(90deg, #5db7ff, #1991ff); /* สีฟ้าแบบเหรียญ SOL */
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 20px rgba(0, 170, 255, 0.9);
-      margin-bottom: 30px;
+      border-bottom: 2px solid #ffd347;
+      box-shadow: 0 2px 8px rgba(29,126,255,0.8);
     }
 
     header h1 {
-      font-size: 2.2rem;
-      color: #ffd347;
-      font-weight: 900;
+      font-size: 2rem;
+      color: #ffd347; /* สีทอง */
+      cursor: default;
       display: flex;
       align-items: center;
       gap: 1rem;
-      text-shadow: 1px 1px 8px #bfa136;
-      cursor: default;
+      font-weight: 900;
+      text-shadow: 1px 1px 3px #bfa136;
     }
 
     header h1 img {
       height: 48px;
       width: 48px;
       border-radius: 50%;
-      box-shadow: 0 0 15px #80d1ff;
+      box-shadow: 0 0 10px rgba(255, 211, 63, 0.8);
     }
 
     nav {
       display: flex;
-      gap: 18px;
+      gap: 20px;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     nav button {
       background: transparent;
       border: 2px solid #ffd347;
       color: #ffd347;
-      padding: 8px 18px;
+      padding: 8px 15px;
       font-size: 1rem;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      font-weight: 700;
-      text-shadow: 0 0 5px #bfa136;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      text-shadow: 0 0 3px #bfa136;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     nav button:hover {
       background: #ffd347;
-      color: #0057b8;
-      box-shadow: 0 0 12px #ffd347;
-      text-shadow: none;
-      border-color: #ffd347;
-    }
-
-    nav button.sol {
-      background: linear-gradient(90deg, #5db7ff, #1991ff);
-      color: #e0f7ff;
-      box-shadow: 0 3px 10px rgba(29,126,255,0.8);
-      text-shadow: 0 0 5px #7cc3ff;
-      border: none;
-    }
-
-    nav button.sol:hover {
-      background: linear-gradient(90deg, #8ec9ff, #3db5ff);
-      box-shadow: 0 0 15px rgba(44,174,255,0.9);
-      color: #003058;
+      color: #111;
       text-shadow: none;
     }
 
-    /* Section Titles */
+    main {
+      flex-grow: 1;
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
     h2 {
-      color: #ffd347;
+      color: #ffd347; /* สีทอง */
       margin-bottom: 20px;
-      text-shadow: 0 0 10px #bfa136;
-      font-weight: 900;
+      text-shadow: 0 0 5px #bfa136;
     }
 
-    /* Sections */
     .section {
       margin-bottom: 50px;
-      font-size: 1.15rem;
-      line-height: 1.55;
-      color: #f5f5f5;
     }
 
-    /* Buttons group */
     .buttons-group {
       display: flex;
       gap: 15px;
@@ -184,90 +102,79 @@
       background: linear-gradient(90deg, #ffd347, #bfa136);
       color: #111;
       border: none;
-      padding: 15px 32px;
-      font-weight: 700;
+      padding: 15px 30px;
+      font-weight: bold;
       font-size: 1.1rem;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
+      box-shadow: 0 3px 8px rgba(191,161,54,0.6);
+      text-shadow: 0 0 2px #6f5600;
       transition: background-color 0.3s ease;
-      box-shadow: 0 3px 15px rgba(191,161,54,0.7);
-      text-shadow: 0 0 3px #6f5600;
-      min-width: 140px;
-      text-align: center;
     }
 
     .buttons-group button:hover {
       background: linear-gradient(90deg, #fff3a6, #f5ca34);
-      box-shadow: 0 4px 20px rgba(255,211,63,0.95);
+      box-shadow: 0 4px 12px rgba(255,211,63,0.9);
       color: #222;
       text-shadow: none;
     }
 
-    /* Buttons SOL style */
+    /* ปุ่มฟ้าสำหรับโซล */
     .buttons-group button.sol {
       background: linear-gradient(90deg, #5db7ff, #1991ff);
       color: #e0f7ff;
-      box-shadow: 0 3px 15px rgba(29,126,255,0.9);
-      text-shadow: 0 0 6px #7cc3ff;
-      border-radius: 12px;
-      min-width: 140px;
+      box-shadow: 0 3px 8px rgba(29,126,255,0.8);
+      text-shadow: 0 0 3px #7cc3ff;
     }
 
     .buttons-group button.sol:hover {
       background: linear-gradient(90deg, #8ec9ff, #3db5ff);
-      box-shadow: 0 5px 25px rgba(44,174,255,0.9);
+      box-shadow: 0 4px 12px rgba(44,174,255,0.9);
       color: #003058;
       text-shadow: none;
     }
 
-    /* Footer */
     footer {
-      margin-top: 30px;
+      background: #1f2025;
+      color: #aaa;
       text-align: center;
+      padding: 15px 0;
       font-size: 0.9rem;
-      color: #ffd347;
-      text-shadow: 0 0 8px #bfa136;
+      margin-top: auto;
+      border-top: 1px solid #333;
       user-select: none;
     }
 
     a {
-      color: #80d1ff;
+      color: #ffd347;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
 
     a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #80d1ff;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-
 <header>
   <h1>
-    <img src="ChatGPT Image 27 พ.ค. 2568 03_43_58.png" alt="Meowchain Logo" title="Meowchain" />
+    <img src="ChatGPT Image 27 พ.ค. 2568 03_43_58.png" alt="Meowchain Logo - meowai" title="Meowchain" />
     MeowChain
-    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo" title="MEOW-SOL" style="margin-left:1rem; box-shadow: 0 0 15px #80d1ff;" />
+    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo - meowai" title="MEOW-SOL" style="margin-left:1rem; height:48px; width:48px; border-radius:50%; box-shadow: 0 0 8px #00aaff;" />
   </h1>
   <nav>
-    <button onclick="scrollToSection('about')">About</button>
     <button onclick="scrollToSection('roadmap')">Roadmap</button>
     <button onclick="scrollToSection('ecosystem')">Ecosystem</button>
     <button onclick="scrollToSection('community')">Community</button>
     <button onclick="scrollToSection('contact')">Contact</button>
-    <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
-    <button onclick="window.open('https://meowtokenteam.com/meowdex', '_blank')" class="sol">MeowDEX</button>
-    <button onclick="window.open('https://solscan.io/token/MEOW-SOL-ADDRESS-PLACEHOLDER', '_blank')" class="sol">MEOW-SOL</button>
   </nav>
 </header>
 
 <main>
-  <section class="section" id="about">
-    <h2>About MeowChain</h2>
-    <p>MeowChain is a decentralized blockchain universe designed to empower creators, developers, and communities worldwide. Born to provide a secure, transparent, and scalable ecosystem, MeowChain aims to enable everyone to create and manage their own projects without centralized control. The primary beneficiaries are the users, token holders, and developers who participate actively in the MeowChain ecosystem, enjoying passive income, governance rights, and community-driven growth.</p>
+  <section class="section" id="intro">
+    <h2>Welcome to MeowChain</h2>
+    <p>The decentralized blockchain universe empowering creators, developers, and communities worldwide.</p>
   </section>
 
   <section class="section" id="roadmap">
@@ -283,8 +190,8 @@
     <p>Explore the powerful projects built on MeowChain.</p>
     <div class="buttons-group">
       <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
-      <button onclick="window.open('https://meowtokenteam.com/meowdex', '_blank')" class="sol">MeowDEX</button>
-      <button onclick="window.open('https://solscan.io/token/MEOW-SOL-ADDRESS-PLACEHOLDER', '_blank')" class="sol">MEOW-SOL</button>
+      <button onclick="window.open('https://solscan.io/token/Epw6gVg9sPN5SC1AUXYXPvGsL4CgRADJHikZMZQ9GoiM', '_blank')" class="sol">Meow-sol</button>
+      <button onclick="window.open('https://meowtokenteam.com/meowd', '_blank')">$MEOW Token</button>
       <button onclick="window.open('https://meowtokenteam.com/meowcare', '_blank')">MeowCare</button>
     </div>
   </section>
@@ -315,8 +222,6 @@
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   }
 </script>
-
-</div>
 
 </body>
 </html>
