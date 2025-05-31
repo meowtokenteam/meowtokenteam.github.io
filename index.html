@@ -227,11 +227,8 @@
     <button onclick="scrollToSection('contact')">Contact</button>
     <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
     <button onclick="window.open('https://meowtokenteam.com/meowdex', '_blank')" class="sol">MeowDEX</button>
-    <button onclick="window.open('https://meowtokenteam.com/meowsol', '_blank')" class="sol">MEOW-SOL</button>
-    <select id="languageSelect" onchange="changeLanguage()">
-      <option value="en" selected>English</option>
-      <option value="th">ไทย</option>
-    </select>
+    <!-- MEOW-SOL ปุ่มลิงก์ไป Solscan -->
+    <button onclick="window.open('https://solscan.io/token/MEOW-SOL-ADDRESS-PLACEHOLDER', '_blank')" class="sol">MEOW-SOL</button>
   </nav>
 </header>
 
@@ -255,7 +252,7 @@
     <div class="buttons-group">
       <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
       <button onclick="window.open('https://meowtokenteam.com/meowdex', '_blank')" class="sol">MeowDEX</button>
-      <button onclick="window.open('https://meowtokenteam.com/meowsol', '_blank')" class="sol">MEOW-SOL</button>
+      <button onclick="window.open('https://solscan.io/token/MEOW-SOL-ADDRESS-PLACEHOLDER', '_blank')" class="sol">MEOW-SOL</button>
       <button onclick="window.open('https://meowtokenteam.com/meowcare', '_blank')">MeowCare</button>
     </div>
   </section>
@@ -284,53 +281,6 @@
 <script>
   function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function changeLanguage() {
-    const lang = document.getElementById('languageSelect').value;
-    if (lang === 'th') {
-      document.querySelector('header h1').childNodes[1].nodeValue = ' มีวเชน ';
-      document.querySelector('section#about h2').textContent = 'เกี่ยวกับ MeowChain';
-      document.querySelector('section#about p').textContent = 'MeowChain คือจักรวาลบล็อกเชนแบบกระจายศูนย์ที่ออกแบบมาเพื่อเสริมพลังให้ผู้สร้าง นักพัฒนา และชุมชนทั่วโลก เกิดมาเพื่อให้ระบบนิเวศปลอดภัย โปร่งใส และขยายตัวได้ MeowChain มีเป้าหมายเพื่อให้ทุกคนสามารถสร้างและจัดการโปรเจกต์ของตนเองได้โดยไม่ต้องมีการควบคุมจากส่วนกลาง ประโยชน์สูงสุดตกแก่ผู้ใช้ ผู้ถือโทเค็น และนักพัฒนาที่มีส่วนร่วมอย่างแข็งขันในระบบนิเวศ MeowChain โดยได้รับรายได้แบบพาสซีฟ สิทธิการกำกับดูแล และการเติบโตที่ขับเคลื่อนโดยชุมชน';
-      document.querySelector('section#roadmap h2').textContent = 'โรดแมพ';
-      document.querySelector('section#roadmap p').textContent = 'ค้นพบเส้นทางและช่วงเวลาการพัฒนาของ MeowChain ในอนาคต';
-      document.querySelector('section#ecosystem h2').textContent = 'ระบบนิเวศของ MeowChain';
-      document.querySelector('section#ecosystem p').textContent = 'สำรวจโปรเจกต์อันทรงพลังที่สร้างบน MeowChain';
-      document.querySelector('section#community h2').textContent = 'ชุมชน & โซเชียล';
-      document.querySelector('section#community p').textContent = 'เข้าร่วมชุมชนของเราและติดต่อผ่านแพลตฟอร์มโซเชียล';
-      document.querySelector('section#contact h2').textContent = 'ติดต่อเรา';
-      document.querySelector('section#contact p').innerHTML = 'มีคำถาม? ติดต่อเราที่อีเมล: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a>';
-      const navButtons = document.querySelectorAll('nav button');
-      navButtons[0].textContent = 'เกี่ยวกับ';
-      navButtons[1].textContent = 'โรดแมพ';
-      navButtons[2].textContent = 'ระบบนิเวศ';
-      navButtons[3].textContent = 'ชุมชน';
-      navButtons[4].textContent = 'ติดต่อ';
-      navButtons[5].textContent = 'MeowWallet';
-      navButtons[6].textContent = 'MeowDEX';
-      navButtons[7].textContent = 'MEOW-SOL';
-    } else {
-      document.querySelector('header h1').childNodes[1].nodeValue = ' MeowChain ';
-      document.querySelector('section#about h2').textContent = 'About MeowChain';
-      document.querySelector('section#about p').textContent = 'MeowChain is a decentralized blockchain universe designed to empower creators, developers, and communities worldwide. Born to provide a secure, transparent, and scalable ecosystem, MeowChain aims to enable everyone to create and manage their own projects without centralized control. The primary beneficiaries are the users, token holders, and developers who participate actively in the MeowChain ecosystem, enjoying passive income, governance rights, and community-driven growth.';
-      document.querySelector('section#roadmap h2').textContent = 'Roadmap';
-      document.querySelector('section#roadmap p').textContent = 'Discover the future milestones and phases of MeowChain’s development.';
-      document.querySelector('section#ecosystem h2').textContent = 'MeowChain Ecosystem';
-      document.querySelector('section#ecosystem p').textContent = 'Explore the powerful projects built on MeowChain.';
-      document.querySelector('section#community h2').textContent = 'Community & Social';
-      document.querySelector('section#community p').textContent = 'Join our growing community and connect with us on social platforms.';
-      document.querySelector('section#contact h2').textContent = 'Contact Us';
-      document.querySelector('section#contact p').innerHTML = 'Questions? Reach out via email: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a>';
-      const navButtons = document.querySelectorAll('nav button');
-      navButtons[0].textContent = 'About';
-      navButtons[1].textContent = 'Roadmap';
-      navButtons[2].textContent = 'Ecosystem';
-      navButtons[3].textContent = 'Community';
-      navButtons[4].textContent = 'Contact';
-      navButtons[5].textContent = 'MeowWallet';
-      navButtons[6].textContent = 'MeowDEX';
-      navButtons[7].textContent = 'MEOW-SOL';
-    }
   }
 </script>
 
