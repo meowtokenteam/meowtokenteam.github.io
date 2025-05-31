@@ -12,21 +12,20 @@
       box-sizing: border-box;
     }
 
+    /* Body & background */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #f5f5f5;
-      line-height: 1.6;
+      background: radial-gradient(ellipse at center, #0b0c10 0%, #1a1a2e 70%, #0b0c10 100%);
+      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-
-      /* ท้องจักรวาลพื้นหลัง */
-      background: radial-gradient(ellipse at center, #0b0c10 0%, #1a1a2e 70%, #0b0c10 100%);
-      overflow-x: hidden;
-      position: relative;
+      align-items: center;
+      padding: 20px;
     }
 
-    /* ดาวเล็ก ๆ แบบกระจายทั่วพื้นหลัง */
+    /* Stars effect */
     body::before {
       content: "";
       position: fixed;
@@ -53,6 +52,7 @@
         750px 280px 2px #eee;
       animation: twinkle 20s linear infinite;
       opacity: 0.8;
+      z-index: -1;
     }
 
     @keyframes twinkle {
@@ -60,7 +60,6 @@
       50% { opacity: 0.4; }
     }
 
-    /* กลุ่มเมฆนุ่ม ๆ */
     body::after {
       content: "";
       position: fixed;
@@ -70,83 +69,111 @@
         radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05), transparent 70%),
         radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.07), transparent 80%);
       filter: blur(30px);
+      z-index: -1;
     }
 
+    /* Container to center content and limit width */
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      background-color: rgba(15,15,20,0.75);
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(255, 211, 63, 0.7);
+      padding: 40px 50px;
+    }
+
+    /* Header */
     header {
-      background: linear-gradient(90deg, #0057b8, #00aaff); /* สีฟ้าโทนเหรียญ SOL */
-      padding: 15px 40px;
+      background: linear-gradient(90deg, #0057b8, #00aaff);
+      width: 100%;
+      max-width: 1000px;
+      padding: 15px 50px;
+      border-radius: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #ffd347;
-      box-shadow: 0 2px 10px rgba(0, 170, 255, 0.8);
+      box-shadow: 0 4px 20px rgba(0, 170, 255, 0.9);
+      margin-bottom: 30px;
     }
 
     header h1 {
-      font-size: 2rem;
-      color: #ffd347; /* สีทอง */
-      cursor: default;
+      font-size: 2.2rem;
+      color: #ffd347;
+      font-weight: 900;
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-weight: 900;
-      text-shadow: 1px 1px 5px #bfa136;
+      text-shadow: 1px 1px 8px #bfa136;
+      cursor: default;
     }
 
     header h1 img {
       height: 48px;
       width: 48px;
       border-radius: 50%;
-      box-shadow: 0 0 10px #ffd347;
+      box-shadow: 0 0 15px #80d1ff;
     }
 
     nav {
       display: flex;
-      gap: 15px;
+      gap: 18px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
-    nav button, nav select {
+    nav button {
       background: transparent;
       border: 2px solid #ffd347;
       color: #ffd347;
-      padding: 7px 14px;
+      padding: 8px 18px;
       font-size: 1rem;
-      border-radius: 6px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
       font-weight: 700;
       text-shadow: 0 0 5px #bfa136;
+      transition: all 0.3s ease;
     }
 
-    nav button:hover, nav select:hover {
+    nav button:hover {
       background: #ffd347;
       color: #0057b8;
+      box-shadow: 0 0 12px #ffd347;
+      text-shadow: none;
+      border-color: #ffd347;
+    }
+
+    nav button.sol {
+      background: linear-gradient(90deg, #5db7ff, #1991ff);
+      color: #e0f7ff;
+      box-shadow: 0 3px 10px rgba(29,126,255,0.8);
+      text-shadow: 0 0 5px #7cc3ff;
+      border: none;
+    }
+
+    nav button.sol:hover {
+      background: linear-gradient(90deg, #8ec9ff, #3db5ff);
+      box-shadow: 0 0 15px rgba(44,174,255,0.9);
+      color: #003058;
       text-shadow: none;
     }
 
-    main {
-      flex-grow: 1;
-      padding: 50px 30px;
-      max-width: 900px;
-      margin: 0 auto;
-      background-color: rgba(15,15,20,0.6);
-      border-radius: 15px;
-      box-shadow: 0 0 30px rgba(255, 211, 63, 0.6);
-    }
-
+    /* Section Titles */
     h2 {
       color: #ffd347;
       margin-bottom: 20px;
-      text-shadow: 0 0 7px #bfa136;
+      text-shadow: 0 0 10px #bfa136;
+      font-weight: 900;
     }
 
+    /* Sections */
     .section {
       margin-bottom: 50px;
-      font-size: 1.1rem;
-      line-height: 1.5;
+      font-size: 1.15rem;
+      line-height: 1.55;
+      color: #f5f5f5;
     }
 
+    /* Buttons group */
     .buttons-group {
       display: flex;
       gap: 15px;
@@ -157,46 +184,50 @@
       background: linear-gradient(90deg, #ffd347, #bfa136);
       color: #111;
       border: none;
-      padding: 15px 30px;
+      padding: 15px 32px;
       font-weight: 700;
       font-size: 1.1rem;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      box-shadow: 0 3px 10px rgba(191,161,54,0.6);
+      box-shadow: 0 3px 15px rgba(191,161,54,0.7);
       text-shadow: 0 0 3px #6f5600;
+      min-width: 140px;
+      text-align: center;
     }
 
     .buttons-group button:hover {
       background: linear-gradient(90deg, #fff3a6, #f5ca34);
-      box-shadow: 0 4px 15px rgba(255,211,63,0.9);
+      box-shadow: 0 4px 20px rgba(255,211,63,0.95);
       color: #222;
       text-shadow: none;
     }
 
-    /* ปุ่มฟ้าสำหรับโซล */
+    /* Buttons SOL style */
     .buttons-group button.sol {
       background: linear-gradient(90deg, #5db7ff, #1991ff);
       color: #e0f7ff;
-      box-shadow: 0 3px 10px rgba(29,126,255,0.8);
-      text-shadow: 0 0 5px #7cc3ff;
+      box-shadow: 0 3px 15px rgba(29,126,255,0.9);
+      text-shadow: 0 0 6px #7cc3ff;
+      border-radius: 12px;
+      min-width: 140px;
     }
 
     .buttons-group button.sol:hover {
       background: linear-gradient(90deg, #8ec9ff, #3db5ff);
-      box-shadow: 0 4px 15px rgba(44,174,255,0.9);
+      box-shadow: 0 5px 25px rgba(44,174,255,0.9);
       color: #003058;
       text-shadow: none;
     }
 
+    /* Footer */
     footer {
-      background: transparent;
-      color: #ffd347;
+      margin-top: 30px;
       text-align: center;
-      padding: 20px 0;
       font-size: 0.9rem;
+      color: #ffd347;
+      text-shadow: 0 0 8px #bfa136;
       user-select: none;
-      text-shadow: 0 0 7px #bfa136;
     }
 
     a {
@@ -207,17 +238,19 @@
 
     a:hover {
       color: #fff;
-      text-shadow: 0 0 7px #80d1ff;
+      text-shadow: 0 0 10px #80d1ff;
     }
   </style>
 </head>
 <body>
 
+<div class="container">
+
 <header>
   <h1>
-    <img src="ChatGPT Image 27 พ.ค. 2568 03_43_58.png" alt="Meowchain Logo - meowai" title="Meowchain" />
+    <img src="ChatGPT Image 27 พ.ค. 2568 03_43_58.png" alt="Meowchain Logo" title="Meowchain" />
     MeowChain
-    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo - meowai" title="MEOW-SOL" style="margin-left:1rem; height:48px; width:48px; border-radius:50%; box-shadow: 0 0 10px #80d1ff;" />
+    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo" title="MEOW-SOL" style="margin-left:1rem; box-shadow: 0 0 15px #80d1ff;" />
   </h1>
   <nav>
     <button onclick="scrollToSection('about')">About</button>
@@ -227,7 +260,6 @@
     <button onclick="scrollToSection('contact')">Contact</button>
     <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
     <button onclick="window.open('https://meowtokenteam.com/meowdex', '_blank')" class="sol">MeowDEX</button>
-    <!-- MEOW-SOL ปุ่มลิงก์ไป Solscan -->
     <button onclick="window.open('https://solscan.io/token/MEOW-SOL-ADDRESS-PLACEHOLDER', '_blank')" class="sol">MEOW-SOL</button>
   </nav>
 </header>
@@ -274,7 +306,7 @@
 </main>
 
 <footer>
-  &copy; 2025 MeowChain by MeowToken Team. All rights reserved.<br>
+  &copy; 2025 MeowChain by MeowToken Team. All rights reserved.<br />
   Designed with ❤️ by <strong>meowai</strong>
 </footer>
 
@@ -283,6 +315,8 @@
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   }
 </script>
+
+</div>
 
 </body>
 </html>
