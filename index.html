@@ -1,17 +1,262 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MeowToken Team</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MeowChain - The Decentralized Blockchain Universe</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f1013;
+      color: #eee;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(90deg, #bfa136, #ffd347); /* สีทอง */
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ffb347;
+      box-shadow: 0 2px 8px rgba(191, 161, 54, 0.8);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #111;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 900;
+      text-shadow: 1px 1px 3px #7a5c00;
+    }
+
+    header h1 img {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(191,161,54,0.7);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav button, nav select {
+      background: transparent;
+      border: 2px solid #b6d0ff; /* ฟ้า */
+      color: #b6d0ff;
+      padding: 8px 15px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-weight: 600;
+      text-shadow: 0 0 3px #91b9ff;
+    }
+
+    nav button:hover, nav select:hover {
+      background: #b6d0ff;
+      color: #111;
+      text-shadow: none;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #ffd347; /* สีทอง */
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #bfa136;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .buttons-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .buttons-group button {
+      background: linear-gradient(90deg, #ffd347, #bfa136);
+      color: #111;
+      border: none;
+      padding: 15px 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 3px 8px rgba(191,161,54,0.6);
+      text-shadow: 0 0 2px #6f5600;
+    }
+
+    .buttons-group button:hover {
+      background: linear-gradient(90deg, #fff3a6, #f5ca34);
+      box-shadow: 0 4px 12px rgba(255,211,63,0.9);
+      color: #222;
+      text-shadow: none;
+    }
+
+    /* ปุ่มฟ้าสำหรับโซล */
+    .buttons-group button.sol {
+      background: linear-gradient(90deg, #5db7ff, #1991ff);
+      color: #e0f7ff;
+      box-shadow: 0 3px 8px rgba(29,126,255,0.8);
+      text-shadow: 0 0 3px #7cc3ff;
+    }
+
+    .buttons-group button.sol:hover {
+      background: linear-gradient(90deg, #8ec9ff, #3db5ff);
+      box-shadow: 0 4px 12px rgba(44,174,255,0.9);
+      color: #003058;
+      text-shadow: none;
+    }
+
+    footer {
+      background: #1f2025;
+      color: #aaa;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: auto;
+      border-top: 1px solid #333;
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>ยินดีต้อนรับสู่ MeowToken Team</h1>
-  <p>เว็บไซต์อย่างง่ายสำหรับ MeowToken Team</p>
-  <p>ติดตามเราบน:</p>
-  <ul>
-    <li><a href="https://twitter.com/meowtokenteam" target="_blank">Twitter</a></li>
-    <li><a href="https://discord.gg/meowtoken" target="_blank">Discord</a></li>
-  </ul>
+
+<header>
+  <h1>
+    <img src="ChatGPT Image 27 พ.ค. 2568 03_43_58.png" alt="Meowchain Logo - meowai" title="Meowchain" />
+    MeowChain
+    <img src="ChatGPT Image 31 พ.ค. 2568 05_25_44.png" alt="MEOW-SOL Logo - meowai" title="MEOW-SOL" style="margin-left:1rem; height:48px; width:48px; border-radius:50%; box-shadow: 0 0 8px #00aaff;" />
+  </h1>
+  <nav>
+    <button onclick="scrollToSection('roadmap')">Roadmap</button>
+    <button onclick="scrollToSection('ecosystem')">Ecosystem</button>
+    <button onclick="scrollToSection('community')">Community</button>
+    <button onclick="scrollToSection('contact')">Contact</button>
+    <select id="languageSelect" onchange="changeLanguage()">
+      <option value="en" selected>English</option>
+      <option value="th">ไทย</option>
+    </select>
+  </nav>
+</header>
+
+<main>
+  <section class="section" id="intro">
+    <h2>Welcome to MeowChain</h2>
+    <p>The decentralized blockchain universe empowering creators, developers, and communities worldwide.</p>
+  </section>
+
+  <section class="section" id="roadmap">
+    <h2>Roadmap</h2>
+    <p>Discover the future milestones and phases of MeowChain’s development.</p>
+    <div class="buttons-group">
+      <button onclick="window.open('https://meowtokenteam.com/roadmap', '_blank')">View Full Roadmap</button>
+    </div>
+  </section>
+
+  <section class="section" id="ecosystem">
+    <h2>MeowChain Ecosystem</h2>
+    <p>Explore the powerful projects built on MeowChain.</p>
+    <div class="buttons-group">
+      <button onclick="window.open('https://meowtokenteam.com/meowwallet', '_blank')">MeowWallet</button>
+      <button onclick="window.open('https://meowtokenteam.com/meowdex', '_blank')" class="sol">MeowDEX</button>
+      <button onclick="window.open('https://meowtokenteam.com/meowd', '_blank')">$MEOW Token</button>
+      <button onclick="window.open('https://meowtokenteam.com/meowcare', '_blank')">MeowCare</button>
+    </div>
+  </section>
+
+  <section class="section" id="community">
+    <h2>Community & Social</h2>
+    <p>Join our growing community and connect with us on social platforms.</p>
+    <div class="buttons-group">
+      <button onclick="window.open('https://twitter.com/meowtokenteam', '_blank')" class="sol">Twitter</button>
+      <button onclick="window.open('https://discord.gg/meowtoken', '_blank')">Discord</button>
+      <button onclick="window.open('https://t.me/meowtoken', '_blank')">Telegram</button>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Questions? Reach out via email: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a></p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 MeowChain by MeowToken Team. All rights reserved.<br>
+  Designed with ❤️ by <strong>meowai</strong>
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function changeLanguage() {
+    const lang = document.getElementById('languageSelect').value;
+    if (lang === 'th') {
+      document.querySelector('header h1').childNodes[1].nodeValue = ' มีวเชน ';
+      document.querySelector('section#intro h2').textContent = 'ยินดีต้อนรับสู่ มีวเชน';
+      document.querySelector('section#intro p').textContent = 'จักรวาลบล็อกเชนแบบกระจายศูนย์ที่เสริมพลังให้ผู้สร้าง นักพัฒนา และชุมชนทั่วโลก';
+      document.querySelector('section#roadmap h2').textContent = 'โรดแมพ';
+      document.querySelector('section#roadmap p').textContent = 'ค้นหาเส้นทางพัฒนาของมีวเชนในอนาคต';
+      document.querySelector('section#ecosystem h2').textContent = 'ระบบนิเวศของมีวเชน';
+      document.querySelector('section#ecosystem p').textContent = 'สำรวจโปรเจกต์ต่าง ๆ บนมีวเชน';
+      document.querySelector('section#community h2').textContent = 'ชุมชน & โซเชียล';
+      document.querySelector('section#community p').textContent = 'เข้าร่วมชุมชนของเราและติดต่อผ่านโซเชียลมีเดีย';
+      document.querySelector('section#contact h2').textContent = 'ติดต่อเรา';
+      document.querySelector('section#contact p').innerHTML = 'มีคำถาม? ติดต่อเราที่อีเมล: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a>';
+      const navButtons = document.querySelectorAll('nav button');
+      navButtons[0].textContent = 'โรดแมพ';
+      navButtons[1].textContent = 'ระบบนิเวศ';
+      navButtons[2].textContent = 'ชุมชน';
+      navButtons[3].textContent = 'ติดต่อ';
+    } else {
+      document.querySelector('header h1').childNodes[1].nodeValue = ' MeowChain ';
+      document.querySelector('section#intro h2').textContent = 'Welcome to MeowChain';
+      document.querySelector('section#intro p').textContent = 'The decentralized blockchain universe empowering creators, developers, and communities worldwide.';
+      document.querySelector('section#roadmap h2').textContent = 'Roadmap';
+      document.querySelector('section#roadmap p').textContent = 'Discover the future milestones and phases of MeowChain’s development.';
+      document.querySelector('section#ecosystem h2').textContent = 'MeowChain Ecosystem';
+      document.querySelector('section#ecosystem p').textContent = 'Explore the powerful projects built on MeowChain.';
+      document.querySelector('section#community h2').textContent = 'Community & Social';
+      document.querySelector('section#community p').textContent = 'Join our growing community and connect with us on social platforms.';
+      document.querySelector('section#contact h2').textContent = 'Contact Us';
+      document.querySelector('section#contact p').innerHTML = 'Questions? Reach out via email: <a href="mailto:contact@meowtokenteam.com">contact@meowtokenteam.com</a>';
+      const navButtons = document.querySelectorAll('nav button');
+      navButtons[0].textContent = 'Roadmap';
+      navButtons[1].textContent = 'Ecosystem';
+      navButtons[2].textContent = 'Community';
+      navButtons[3].textContent = 'Contact';
+    }
+  }
+</script>
+
 </body>
 </html>
 
